@@ -1,0 +1,17 @@
+{
+  "name": "qrcode generator",
+  "version": "v1.7.0",
+  "keywords": "qrcode, esp32, esp826, espressif",
+  "description": "minimal qrcode generator,fork from awesome https://github.com/nayuki/QR-Code-generator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liux-pro/QR-Code-generator"
+  },
+  "frameworks": "*",
+  "platforms": "*",
+  "build": {
+    "includeDir": "cpp",
+    "srcDir": "cpp",
+    "srcFilter": ["-<*>", "+<qrcodegen.cpp>", "+<qrcodegen.hpp>"]
+  }
+}
