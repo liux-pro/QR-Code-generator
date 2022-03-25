@@ -1,6 +1,58 @@
 QR Code generator library
 =========================
+Work with Platform.io
+------------
+this project is forked from [here](https://github.com/nayuki/QR-Code-generator), a minimal qrcode generator for almost language, include c.
+I just add `library.json`, which makes it work for platform.io.  
+You can add this library to you embedded project by edit `platformio.ini`
+```ini
+lib_deps =
+    https://github.com/liux-pro/QR-Code-generator.git
+```
+A simple example for esp8266
+```c
+#include <Arduino.h>
+#include "qrcodegen.h"
+/*---- Utilities ----*/
 
+// Prints the given QR Code to the console.
+static void printQr(const uint8_t qrcode[]) {
+    int size = qrcodegen_getSize(qrcode);
+    int border = 4;
+    for (int y = -border; y < size + border; y++) {
+        for (int x = -border; x < size + border; x++) {
+            Serial.print((qrcodegen_getModule(qrcode, x, y) ? "@@" : "  "));
+        }
+        Serial.print("\n");
+    }
+    Serial.print("\n");
+}
+/*---- Demo suite ----*/
+
+// Creates a single QR Code, then prints it to the console.
+static void doBasicDemo() {
+    const char *text = "Hello, world!";                // User-supplied text
+    enum qrcodegen_Ecc errCorLvl = qrcodegen_Ecc_LOW;  // Error correction level
+
+    // Make and print the QR Code symbol
+    uint8_t qrcode[qrcodegen_BUFFER_LEN_MAX];
+    uint8_t tempBuffer[qrcodegen_BUFFER_LEN_MAX];
+    bool ok = qrcodegen_encodeText(text, tempBuffer, qrcode, errCorLvl,
+                                   qrcodegen_VERSION_MIN, qrcodegen_VERSION_MAX, qrcodegen_Mask_AUTO, true);
+    if (ok)
+        printQr(qrcode);
+}
+
+void setup() {
+    Serial.begin(115200);
+    doBasicDemo();
+// write your initialization code here
+}
+
+void loop() {
+// write your code here
+}
+```
 
 Introduction
 ------------
