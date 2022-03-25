@@ -10,9 +10,8 @@
   "frameworks": "*",
   "platforms": "*",
   "build": {
-    "flag": "-std=c++11",
-    "includeDir": "cpp",
-    "srcDir": "cpp",
-    "srcFilter": ["-<*>", "+<qrcodegen.cpp>", "+<qrcodegen.hpp>"]
+    "includeDir": "c",
+    "srcDir": "c",
+    "srcFilter": ["-<*>", "+<qrcodegen.c>", "+<qrcodegen.h>"]
   }
 }
