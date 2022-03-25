@@ -1,6 +1,6 @@
 {
   "name": "qrcode generator",
-  "version": "1.7.0",
+  "version": "1.7.2",
   "keywords": "qrcode, esp32, esp826, espressif",
   "description": "minimal qrcode generator,fork from awesome https://github.com/nayuki/QR-Code-generator",
   "repository": {

@@ -7,7 +7,7 @@ I just add `library.json`, which makes it work for platform.io.
 You can add this library to you embedded project by edit `platformio.ini`
 ```ini
 lib_deps =
-    https://github.com/liux-pro/QR-Code-generator.git
+    liux-pro/qrcode generator@^1.7.0
 ```
 A simple example for esp8266
 ```c
